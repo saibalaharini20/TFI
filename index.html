@@ -150,18 +150,25 @@
   </footer>
 
   <script>
-    const input = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.card');
+    const searchInput = document.getElementById("searchInput");
+const actorCards = document.querySelectorAll("#actorCards .card");
 
-    input.addEventListener('input', () => {
-      const value = input.value.toLowerCase();
-      cards.forEach(card => {
-        const name = card.querySelector('p').textContent.toLowerCase();
-        card.style.display = name.includes(value) ? 'block' : 'none';
-      });
-    });
+searchInput.addEventListener("keyup", function () {
+  const filter = searchInput.value.toLowerCase();
+
+  actorCards.forEach(card => {
+    const name = card.querySelector("p").textContent.toLowerCase();
+    if (name.includes(filter)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+
   </script>
 </body>
 </html>
+
 
 
